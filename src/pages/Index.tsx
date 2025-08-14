@@ -318,10 +318,10 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-primary" 
+                className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-primary bg-transparent" 
                 asChild
               >
-                <Link to="/contact">Get Free Quote</Link>
+                <Link to="/contact" className="text-white hover:text-primary">Get Free Quote</Link>
               </Button>
             </div>
           </div>

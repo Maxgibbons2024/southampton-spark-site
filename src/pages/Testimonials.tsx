@@ -17,11 +17,186 @@ const Testimonials = () => {
     try {
       setLoading(true);
       const reviews = await reviewService.getAll();
-      setTestimonials(reviews);
+      if (reviews.length > 0) {
+        setTestimonials(reviews);
+      } else {
+        // Fallback testimonials if no reviews in database
+        setTestimonials([
+          {
+            name: "Freya W.",
+            location: "Southampton",
+            rating: 5,
+            text: "Professional, on time, and very happy with the work done. Ash explained everything clearly and left the area spotless.",
+            service: "Consumer Unit Upgrade"
+          },
+          {
+            name: "Nin Nin",
+            location: "Eastleigh", 
+            rating: 5,
+            text: "Quick, reliable, and great price. Highly recommended. The EICR was completed efficiently and the report was very detailed.",
+            service: "EICR Testing"
+          },
+          {
+            name: "Stuart G.",
+            location: "Romsey",
+            rating: 5,
+            text: "Listens to the customer, makes suggestions, and gets the job done at a fair price. Really pleased with the LED lighting installation.",
+            service: "LED Lighting Installation"
+          },
+          {
+            name: "Charlotte B.",
+            location: "Totton",
+            rating: 5,
+            text: "Responsive, fast and efficient at sorting our fuse box, which wasn't safe. Ash came out the same day and fixed everything properly.",
+            service: "Emergency Repair"
+          },
+          {
+            name: "Helen S.",
+            location: "Winchester",
+            rating: 5,
+            text: "Excellent service, very tidy installation, professional and great value. The EV charger installation was completed perfectly.",
+            service: "EV Charger Installation"
+          },
+          {
+            name: "Margaret H.",
+            location: "Hedge End",
+            rating: 5,
+            text: "Great communication, very reasonable price, tidy work. Would definitely use AM Young Electrical again for future electrical work.",
+            service: "Additional Sockets"
+          },
+          {
+            name: "David L.",
+            location: "Southampton",
+            rating: 5,
+            text: "Fantastic electrician. Ash rewired our kitchen extension and the work was completed to a very high standard. Highly recommended.",
+            service: "Partial Rewiring"
+          },
+          {
+            name: "Sarah M.",
+            location: "Chandler's Ford",
+            rating: 5,
+            text: "Very professional service. The fault finding was quick and the repair was done efficiently. Great value for money.",
+            service: "Fault Finding"
+          },
+          {
+            name: "James R.",
+            location: "Fareham",
+            rating: 5,
+            text: "Ash installed outdoor lighting for us and did an excellent job. Clean, tidy work and very competitive pricing.",
+            service: "Outdoor Lighting"
+          },
+          {
+            name: "Linda K.",
+            location: "Portsmouth",
+            rating: 5,
+            text: "Reliable and trustworthy electrician. The consumer unit upgrade was completed quickly with minimal disruption to our daily routine.",
+            service: "Consumer Unit Upgrade"
+          },
+          {
+            name: "Michael T.",
+            location: "Southampton",
+            rating: 5,
+            text: "Excellent work on our complete house rewire. Ash kept everything tidy and was very respectful of our home. Top quality work.",
+            service: "Complete Rewiring"
+          },
+          {
+            name: "Emma J.",
+            location: "Eastleigh",
+            rating: 5,
+            text: "Great service for our rental property EICR. Quick turnaround and very thorough inspection. Perfect for landlord requirements.",
+            service: "EICR Testing"
+          }
+        ]);
+      }
     } catch (error) {
       console.error('Error fetching testimonials:', error);
-      // Fallback to empty array on error
-      setTestimonials([]);
+      // Fallback testimonials on error
+      setTestimonials([
+        {
+          name: "Freya W.",
+          location: "Southampton",
+          rating: 5,
+          text: "Professional, on time, and very happy with the work done. Ash explained everything clearly and left the area spotless.",
+          service: "Consumer Unit Upgrade"
+        },
+        {
+          name: "Nin Nin",
+          location: "Eastleigh", 
+          rating: 5,
+          text: "Quick, reliable, and great price. Highly recommended. The EICR was completed efficiently and the report was very detailed.",
+          service: "EICR Testing"
+        },
+        {
+          name: "Stuart G.",
+          location: "Romsey",
+          rating: 5,
+          text: "Listens to the customer, makes suggestions, and gets the job done at a fair price. Really pleased with the LED lighting installation.",
+          service: "LED Lighting Installation"
+        },
+        {
+          name: "Charlotte B.",
+          location: "Totton",
+          rating: 5,
+          text: "Responsive, fast and efficient at sorting our fuse box, which wasn't safe. Ash came out the same day and fixed everything properly.",
+          service: "Emergency Repair"
+        },
+        {
+          name: "Helen S.",
+          location: "Winchester",
+          rating: 5,
+          text: "Excellent service, very tidy installation, professional and great value. The EV charger installation was completed perfectly.",
+          service: "EV Charger Installation"
+        },
+        {
+          name: "Margaret H.",
+          location: "Hedge End",
+          rating: 5,
+          text: "Great communication, very reasonable price, tidy work. Would definitely use AM Young Electrical again for future electrical work.",
+          service: "Additional Sockets"
+        },
+        {
+          name: "David L.",
+          location: "Southampton",
+          rating: 5,
+          text: "Fantastic electrician. Ash rewired our kitchen extension and the work was completed to a very high standard. Highly recommended.",
+          service: "Partial Rewiring"
+        },
+        {
+          name: "Sarah M.",
+          location: "Chandler's Ford",
+          rating: 5,
+          text: "Very professional service. The fault finding was quick and the repair was done efficiently. Great value for money.",
+          service: "Fault Finding"
+        },
+        {
+          name: "James R.",
+          location: "Fareham",
+          rating: 5,
+          text: "Ash installed outdoor lighting for us and did an excellent job. Clean, tidy work and very competitive pricing.",
+          service: "Outdoor Lighting"
+        },
+        {
+          name: "Linda K.",
+          location: "Portsmouth",
+          rating: 5,
+          text: "Reliable and trustworthy electrician. The consumer unit upgrade was completed quickly with minimal disruption to our daily routine.",
+          service: "Consumer Unit Upgrade"
+        },
+        {
+          name: "Michael T.",
+          location: "Southampton",
+          rating: 5,
+          text: "Excellent work on our complete house rewire. Ash kept everything tidy and was very respectful of our home. Top quality work.",
+          service: "Complete Rewiring"
+        },
+        {
+          name: "Emma J.",
+          location: "Eastleigh",
+          rating: 5,
+          text: "Great service for our rental property EICR. Quick turnaround and very thorough inspection. Perfect for landlord requirements.",
+          service: "EICR Testing"
+        }
+      ]);
     } finally {
       setLoading(false);
     }
