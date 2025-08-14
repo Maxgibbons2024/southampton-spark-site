@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -18,8 +19,76 @@ import {
   Calendar
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { reviewService, Review } from "../services/reviewService";
 
 const Index = () => {
+  const [testimonials, setTestimonials] = useState<Review[]>([]);
+  
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  const fetchTestimonials = async () => {
+    try {
+      const reviews = await reviewService.getAll();
+      if (reviews.length > 0) {
+        // Show only the first 3 reviews on the homepage
+        setTestimonials(reviews.slice(0, 3));
+      } else {
+        // Fallback testimonials if no reviews in database
+        setTestimonials([
+          {
+            name: "Freya W.",
+            location: "Southampton",
+            rating: 5,
+            text: "Professional, on time, and very happy with the work done.",
+            service: "Consumer Unit Upgrade"
+          },
+          {
+            name: "Nin Nin",
+            location: "Eastleigh", 
+            rating: 5,
+            text: "Quick, reliable, and great price. Highly recommended.",
+            service: "EICR Testing"
+          },
+          {
+            name: "Stuart G.",
+            location: "Romsey",
+            rating: 5,
+            text: "Listens to the customer, makes suggestions, and gets the job done at a fair price.",
+            service: "LED Lighting Installation"
+          }
+        ]);
+      }
+    } catch (error) {
+      console.error('Error fetching testimonials:', error);
+      // Fallback testimonials on error
+      setTestimonials([
+        {
+          name: "Freya W.",
+          location: "Southampton",
+          rating: 5,
+          text: "Professional, on time, and very happy with the work done.",
+          service: "Consumer Unit Upgrade"
+        },
+        {
+          name: "Nin Nin",
+          location: "Eastleigh", 
+          rating: 5,
+          text: "Quick, reliable, and great price. Highly recommended.",
+          service: "EICR Testing"
+        },
+        {
+          name: "Stuart G.",
+          location: "Romsey",
+          rating: 5,
+          text: "Listens to the customer, makes suggestions, and gets the job done at a fair price.",
+          service: "LED Lighting Installation"
+        }
+      ]);
+    }
+  };
+
   const services = [
     {
       title: "EICR Testing",
@@ -95,29 +164,6 @@ const Index = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Freya W.",
-      location: "Southampton",
-      rating: 5,
-      text: "Professional, on time, and very happy with the work done.",
-      service: "Consumer Unit Upgrade"
-    },
-    {
-      name: "Nin Nin",
-      location: "Eastleigh", 
-      rating: 5,
-      text: "Quick, reliable, and great price. Highly recommended.",
-      service: "EICR Testing"
-    },
-    {
-      name: "Stuart G.",
-      location: "Romsey",
-      rating: 5,
-      text: "Listens to the customer, makes suggestions, and gets the job done at a fair price.",
-      service: "LED Lighting Installation"
-    }
-  ];
 
   const stats = [
     { number: "500+", label: "Happy Customers" },
