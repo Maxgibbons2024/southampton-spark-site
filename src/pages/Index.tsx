@@ -201,7 +201,7 @@ const Index = () => {
                   <span>Call 07739 794313</span>
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6" asChild>
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground" asChild>
                 <Link to="/contact">Get Free Quote</Link>
               </Button>
             </div>
