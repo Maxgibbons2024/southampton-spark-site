@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, MessageCircle } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/37275a0b-954e-4dd1-b429-f9588045f995.png" 
               alt="AM Young Electrical"
-              className="h-8 lg:h-10 w-auto transition-smooth hover:scale-105"
+              className="h-12 lg:h-16 w-auto transition-smooth hover:scale-105"
             />
           </Link>
 
@@ -47,14 +47,20 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3">
+            <Button variant="outline" size="sm" asChild>
+              <a href="https://wa.me/447739794313" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2">
+                <MessageCircle className="h-4 w-4" />
+                <span>WhatsApp</span>
+              </a>
+            </Button>
             <Button variant="outline" size="sm" asChild>
               <a href="tel:07739794313" className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
                 <span>07739 794313</span>
               </a>
             </Button>
-            <Button size="sm" className="shadow-button" asChild>
+            <Button size="sm" className="shadow-button bg-primary text-primary-foreground hover:bg-primary-dark" asChild>
               <Link to="/contact">Get Quote</Link>
             </Button>
           </div>
@@ -89,12 +95,18 @@ const Header = () => {
               ))}
               <div className="pt-4 pb-2 space-y-2">
                 <Button variant="outline" className="w-full" asChild>
+                  <a href="https://wa.me/447739794313" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-2">
+                    <MessageCircle className="h-4 w-4" />
+                    <span>WhatsApp</span>
+                  </a>
+                </Button>
+                <Button variant="outline" className="w-full" asChild>
                   <a href="tel:07739794313" className="flex items-center justify-center space-x-2">
                     <Phone className="h-4 w-4" />
                     <span>Call 07739 794313</span>
                   </a>
                 </Button>
-                <Button className="w-full shadow-button" asChild>
+                <Button className="w-full shadow-button bg-primary text-primary-foreground hover:bg-primary-dark" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Get Free Quote
                   </Link>

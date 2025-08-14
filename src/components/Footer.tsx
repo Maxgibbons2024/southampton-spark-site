@@ -30,7 +30,7 @@ const Footer = () => {
             <img 
               src="/lovable-uploads/37275a0b-954e-4dd1-b429-f9588045f995.png" 
               alt="AM Young Electrical"
-              className="h-8 w-auto brightness-0 invert"
+              className="h-10 w-auto"
             />
             <p className="text-sm text-muted-foreground">
               Professional electrical services across Southampton and surrounding areas. 
