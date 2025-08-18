@@ -60,8 +60,8 @@ const Header = () => {
                 <span>07739 794313</span>
               </a>
             </Button>
-            <Button size="sm" className="shadow-button bg-primary text-primary-foreground hover:bg-primary-dark" asChild>
-              <Link to="/contact">Get Quote</Link>
+            <Button size="sm" className="shadow-button bg-primary text-primary-foreground hover:bg-primary-dark font-semibold" asChild>
+              <Link to="/contact">Get Free Quote</Link>
             </Button>
           </div>
 
@@ -106,7 +106,7 @@ const Header = () => {
                     <span>Call 07739 794313</span>
                   </a>
                 </Button>
-                <Button className="w-full shadow-button bg-primary text-primary-foreground hover:bg-primary-dark" asChild>
+                <Button className="w-full shadow-button bg-primary text-primary-foreground hover:bg-primary-dark font-semibold" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Get Free Quote
                   </Link>
