@@ -44,7 +44,7 @@ const sampleImages: GalleryImage[] = [
   },
   {
     id: 9004,
-    title: "Basement Conversion Lighting",
+    title: "Feature Wall Lighting",
     description: "Professional electrical installation for basement conversion featuring recessed ceiling spotlights, brick wall accent lighting, and complete power distribution. Creating functional living space from unused basement.",
     category: "lighting",
     image_path: "/project-images/basement-lighting-conversion.jpg",
